@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 
 logging.basicConfig(level=logging.INFO)
 
-hub_url = "http://Selenium_Container:4444/wd/hub"
+hub_url = "http://localhost:4444/wd/hub"
 
 # Create a new instance of the Chrome driver
 chrome_options = Options()
@@ -17,6 +17,6 @@ try:
     driver.get("https://www.google.com")
 
     title = driver.title
-    logging.info(f"Python Project says: Search results page title: {title}")
+    logging.info(f"Python-4 Project says: Search results page title: {title}")
 finally:
     driver.quit()
