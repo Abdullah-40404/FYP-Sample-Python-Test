@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 
 logging.basicConfig(level=logging.INFO)
 
-hub_url = "http://localhost:4444/wd/hub"
+hub_url = "http://Selenium_Container:4444/wd/hub"
 
 # Create a new instance of the Chrome driver
 chrome_options = Options()
@@ -17,6 +17,14 @@ try:
     driver.get("https://www.google.com")
 
     title = driver.title
-    logging.info(f"Python3 Project says: Search results page title: {title}")
+    logging.info(f"Python-3 Project says: Search results page title: {title}")
+
+    # Capture a screenshot
+    screenshot_path = "T-HEX/Screenshot1.png"
+    driver.save_screenshot(screenshot_path)
+    logging.info(f"Screenshot saved: {screenshot_path}")
+
+    
+
 finally:
     driver.quit()
