@@ -1,6 +1,7 @@
 import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 logging.basicConfig(level=logging.INFO)
 
@@ -16,15 +17,22 @@ try:
     # Get the Google homepage
     driver.get("https://www.google.com")
 
-    title = driver.title
-    logging.info(f"Python-4 Project says: Search results page title: {title}")
+    # Find the search input field and enter the search query
+    search_input = driver.find_element(By.NAME, "q")
+    search_input.send_keys("browserstack")
+    search_input.submit()
 
-    # Capture a screenshot
-    screenshot_path = "T-HEX/Screenshot1.png"
+    # Wait for the search results to load
+    driver.implicitly_wait(10)
+
+    # Find the first search result link and click on it
+    first_link = driver.find_element(By.CSS_SELECTOR, 'a[href*="browserstack"]')
+    first_link.click()
+
+    # Capture a screenshot of the page
+    screenshot_path = "T-HEX/Screenshot.png"
     driver.save_screenshot(screenshot_path)
     logging.info(f"Screenshot saved: {screenshot_path}")
-
-    
 
 finally:
     driver.quit()
