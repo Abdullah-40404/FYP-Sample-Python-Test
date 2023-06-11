@@ -1,6 +1,7 @@
 import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 logging.basicConfig(level=logging.INFO)
 
@@ -14,17 +15,12 @@ driver = webdriver.Remote(command_executor=hub_url, options=chrome_options)
 
 try:
     # Get the Google homepage
-    driver.get("https://www.google.com")
+    driver.get("https://www.browserstack.com")
 
-    title = driver.title
-    logging.info(f"Python-5 Project says: Search results page title: {title}")
-
-    # Capture a screenshot
-    screenshot_path = "T-HEX/Screenshot1.png"
+    # Capture a screenshot of the page
+    screenshot_path = "T-HEX/Screenshot.png"
     driver.save_screenshot(screenshot_path)
     logging.info(f"Screenshot saved: {screenshot_path}")
-
-    
 
 finally:
     driver.quit()
