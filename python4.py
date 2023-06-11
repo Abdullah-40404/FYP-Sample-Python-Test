@@ -18,7 +18,7 @@ try:
     driver.get("https://www.google.com")
 
     # Find the search input field and enter the search query
-    search_input = driver.find_element(By.NAME, "q")
+    search_input = driver.find_element(By.NAME, "Tobefailed")
     search_input.send_keys("browserstack")
     search_input.submit()
 
